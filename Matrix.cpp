@@ -13,6 +13,35 @@ Matrix::Matrix(int r, int c):rows(r),cols(c) {
         }
     }
 }
+Matrix::Matrix(const Matrix& other) : rows(other.rows), cols(other.cols) {
+    data = new double*[rows];
+    for (int i = 0; i < rows; i++) {
+        data[i] = new double[cols];
+        for (int j = 0; j < cols; j++) {
+            data[i][j] = other.data[i][j];
+        }
+    }
+}
+
+
+Matrix& Matrix:: operator=(const Matrix& other) {
+    if (this != &other) {
+        for (int i = 0; i < rows; i++) {
+            delete[] data[i];
+        }
+        delete[] data;
+        rows = other.rows;
+        cols = other.cols;
+        data = new double*[rows];
+        for (int i = 0; i < rows; i++) {
+            data[i] = new double[cols];
+            for (int j = 0; j < cols; j++) {
+                data[i][j] = other.data[i][j];
+            }
+        }
+    }
+    return *this;
+}
 void Matrix::fill() const{
     std::cout << "Enter matrix elements " << rows << "x" << cols << ":" << std::endl;
     for (int i = 0; i < rows; i++) {
