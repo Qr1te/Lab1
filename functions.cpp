@@ -26,7 +26,7 @@ void setNumber(int* number){
 
 void menu( ){
 
-    char reset;
+    char reset = 'y';
     do {
         int row1, col1, row2, col2, choice;
         cout<<"Enter size of the first matrix"<<endl;
