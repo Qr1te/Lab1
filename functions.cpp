@@ -28,14 +28,16 @@ void menu(){
 
     char reset = 'y';
     do {
-        int row1, col1, row2, col2, choice;
+        int row1, col1, row2, col2; 
+        int choice;
         cout<<"Enter size of the first matrix"<<endl;
         setNumber(&row1);
         setNumber(&col1);
         cout<<"Enter size of the second matrix"<<endl;
         setNumber(&row2);
         setNumber(&col2);
-        Matrix matrix1(row1,col1), matrix2(row2,col2);
+        Matrix matrix1(row1,col1); 
+        Matrix matrix2(row2,col2);
         matrix1.fill();
         matrix2.fill();
 
