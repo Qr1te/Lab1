@@ -22,7 +22,7 @@ void Matrix::fill() {
         }
     }
 }
-Matrix Matrix::add(Matrix &other) {
+Matrix Matrix::add (const Matrix &other ) const {
     if (rows != other.rows || cols != other.cols) {
         throw std::invalid_argument("Matrices must be of the same size to be added together");
     }
@@ -35,7 +35,7 @@ Matrix Matrix::add(Matrix &other) {
     }
     return result;
 }
-Matrix Matrix::multiply(Matrix &other) {
+Matrix Matrix::multiply(const Matrix &other) const {
     if (cols != other.rows) {
         throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix");
     }
@@ -51,7 +51,7 @@ Matrix Matrix::multiply(Matrix &other) {
     return result;
 }
 
-void Matrix::print() {
+void Matrix::print() const{
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             std::cout << data[i][j] << " ";
