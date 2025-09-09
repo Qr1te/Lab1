@@ -13,7 +13,7 @@ Matrix::Matrix(int r, int c):rows(r),cols(c) {
         }
     }
 }
-void Matrix::fill() {
+void Matrix::fill() const{
     cout << "Enter matrix elements " << rows << "x" << cols << ":" << std::endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
