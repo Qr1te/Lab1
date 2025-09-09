@@ -2,6 +2,7 @@
 #define MATRICES_MATRIX_H
 
 #include <iostream>
+#include <stdexcept>
 
 
 class Matrix {
@@ -12,6 +13,8 @@ private:
 
 public:
     Matrix(int r, int c);
+    Matrix(const Matrix& other);
+    Matrix& operator=(const Matrix& other);
     ~Matrix();
     void fill() const;
     Matrix  add (const Matrix& other) const;
