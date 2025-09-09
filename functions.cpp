@@ -1,27 +1,41 @@
 #include "functions.h"
 
-void setNumber(int* number){
-    int isInvalid = 0;
+void setNumber(int* number) {
+    bool isInvalid = false;
+
     do {
-        isInvalid = 0;
-        int i = 0;
+        isInvalid = false;
         *number = 0;
-        char digits[10];
-        std::cin>>digits;
+        std::string digits;
+        std::getline(std::cin, digits);
         int negative = 1;
-        if(digits[0] == '-'){negative = -1;i++;}
-        do {
-            if (digits[i] < '0' || digits[i] > '9') {
-                std::cout<<"Enter a valid number\n";
-                isInvalid = 1;
-                while(getchar()!='\n');
-                break;
-            }
-            else {*number = *number * 10 + digits[i] - '0'; }
-        } while(digits[++i] != 0);
+        int i = 0;
+        if (!digits.empty() && digits[0] == '-') {
+            negative = -1;
+            i++;
+        }
+
+        int j = i;
+        while (j < digits.size() && std::isdigit(digits[j])) {
+            j++;
+        }
+
+        if (j != digits.size() || i == digits.size()) {
+            std::cout << "Enter a valid number" << std::endl;
+            isInvalid = true;
+            continue;
+        }
+
+        while (i < digits.size()) {
+            *number = *number * 10 + (digits[i] - '0');
+            i++;
+        }
+
         *number *= negative;
-    }while(isInvalid == 1);
-    rewind(stdin);
+
+    } while (isInvalid);
+
+    std::cin.clear();
 }
 
 void menu(){
