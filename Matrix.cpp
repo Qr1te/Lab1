@@ -14,11 +14,11 @@ Matrix::Matrix(int r, int c):rows(r),cols(c) {
     }
 }
 void Matrix::fill() const{
-    cout << "Enter matrix elements " << rows << "x" << cols << ":" << std::endl;
+    std::cout << "Enter matrix elements " << rows << "x" << cols << ":" << std::endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            cout << "Element [" << i << "][" << j << "]: ";
-            cin >> data[i][j];
+            std::cout << "Element [" << i << "][" << j << "]: ";
+            std::cin >> data[i][j];
         }
     }
 }

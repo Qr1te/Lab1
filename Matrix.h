@@ -2,7 +2,7 @@
 #define MATRICES_MATRIX_H
 
 #include <iostream>
-using namespace std;
+
 
 class Matrix {
 private:
