@@ -24,7 +24,7 @@ void setNumber(int* number){
     rewind(stdin);
 }
 
-void menu( ){
+void menu(){
 
     char reset = 'y';
     do {

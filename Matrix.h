@@ -14,9 +14,9 @@ public:
     Matrix(int r, int c);
     ~Matrix();
     void fill();
-    Matrix add( Matrix& other);
-    Matrix multiply( Matrix& other);
-    void print();
+    Matrix  add (const Matrix& other) const;
+    Matrix  multiply (const Matrix& other) const;
+    void print() const;
 };
 
 
