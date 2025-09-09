@@ -13,7 +13,7 @@ private:
 public:
     Matrix(int r, int c);
     ~Matrix();
-    void fill();
+    void fill() const;
     Matrix  add (const Matrix& other) const;
     Matrix  multiply (const Matrix& other) const;
     void print() const;
