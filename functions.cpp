@@ -2,7 +2,6 @@
 
 void setNumber(int* number) {
     bool isInvalid = false;
-
     do {
         isInvalid = false;
         *number = 0;
@@ -14,25 +13,20 @@ void setNumber(int* number) {
             negative = -1;
             i++;
         }
-
         int j = i;
         while (j < digits.size() && std::isdigit(digits[j])) {
             j++;
         }
-
         if (j != digits.size() || i == digits.size()) {
             std::cout << "Enter a valid number" << std::endl;
             isInvalid = true;
             continue;
         }
-
         while (i < digits.size()) {
             *number = *number * 10 + (digits[i] - '0');
             i++;
         }
-
         *number *= negative;
-
     } while (isInvalid);
 
     std::cin.clear();
@@ -55,7 +49,7 @@ void menu(){
         matrix1.fill();
         matrix2.fill();
 
-        std::cout<<"What u want to do with your matrices: 1.add 2.multiply "<<std::endl;
+        std::cout<<"What u want to do with your matrices: 1.add 2.multiply ";
         setNumber(&choice);
         while(choice!=1 && choice !=2 && choice!=3){
             std::cout<<"Incorrect input";

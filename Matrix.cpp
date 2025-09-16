@@ -5,24 +5,23 @@ Matrix::Matrix(int r, int c):rows(r),cols(c) {
         throw std::invalid_argument("The matrix dimensions must be positive");
     }
 
-    data = new double*[rows];
+    data = new int*[rows];
     for (int i = 0; i < rows; i++) {
-        data[i] = new double[cols];
+        data[i] = new int[cols];
         for (int j = 0; j < cols; j++) {
-            data[i][j] = 0.0;
+            data[i][j] = 0;
         }
     }
 }
 Matrix::Matrix(const Matrix& other) : rows(other.rows), cols(other.cols) {
-    data = new double*[rows];
+    data = new int*[rows];
     for (int i = 0; i < rows; i++) {
-        data[i] = new double[cols];
+        data[i] = new int[cols];
         for (int j = 0; j < cols; j++) {
             data[i][j] = other.data[i][j];
         }
     }
 }
-
 
 Matrix& Matrix:: operator=(const Matrix& other) {
     if (this != &other) {
@@ -32,9 +31,9 @@ Matrix& Matrix:: operator=(const Matrix& other) {
         delete[] data;
         rows = other.rows;
         cols = other.cols;
-        data = new double*[rows];
+        data = new int*[rows];
         for (int i = 0; i < rows; i++) {
-            data[i] = new double[cols];
+            data[i] = new int[cols];
             for (int j = 0; j < cols; j++) {
                 data[i][j] = other.data[i][j];
             }
@@ -49,7 +48,7 @@ Matrix& Matrix:: operator=(const Matrix& other) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             std::cout << "Element [" << i << "][" << j << "]: ";
-            std::cin >> data[i][j];
+            setNumber(&data[i][j]);
         }
     }
 }
@@ -90,6 +89,7 @@ void Matrix::print() const{
         std::cout << std::endl;
     }
 }
+
 Matrix::~Matrix()  {
     for (int i = 0; i < rows; i++) {
         delete[] data[i];
