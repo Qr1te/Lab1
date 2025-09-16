@@ -1,11 +1,11 @@
 #include "Matrix.h"
 
-Matrix::Matrix(int r, int c):rows(r),cols(c) {
+Matrix::Matrix(int r, int c) : rows(r), cols(c) {
     if (rows <= 0 || cols <= 0) {
         throw std::invalid_argument("The matrix dimensions must be positive");
     }
 
-    data = new int*[rows];
+    data = new int *[rows];
     for (int i = 0; i < rows; i++) {
         data[i] = new int[cols];
         for (int j = 0; j < cols; j++) {
@@ -13,8 +13,9 @@ Matrix::Matrix(int r, int c):rows(r),cols(c) {
         }
     }
 }
-Matrix::Matrix(const Matrix& other) : rows(other.rows), cols(other.cols) {
-    data = new int*[rows];
+
+Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) {
+    data = new int *[rows];
     for (int i = 0; i < rows; i++) {
         data[i] = new int[cols];
         for (int j = 0; j < cols; j++) {
@@ -23,7 +24,7 @@ Matrix::Matrix(const Matrix& other) : rows(other.rows), cols(other.cols) {
     }
 }
 
-Matrix& Matrix:: operator=(const Matrix& other) {
+Matrix &Matrix::operator=(const Matrix &other) {
     if (this != &other) {
         for (int i = 0; i < rows; i++) {
             delete[] data[i];
@@ -31,7 +32,7 @@ Matrix& Matrix:: operator=(const Matrix& other) {
         delete[] data;
         rows = other.rows;
         cols = other.cols;
-        data = new int*[rows];
+        data = new int *[rows];
         for (int i = 0; i < rows; i++) {
             data[i] = new int[cols];
             for (int j = 0; j < cols; j++) {
@@ -42,8 +43,7 @@ Matrix& Matrix:: operator=(const Matrix& other) {
     return *this;
 }
 
-
-    void Matrix::fill() const{
+void Matrix::fill() const {
     std::cout << "Enter matrix elements " << rows << "x" << cols << ":" << std::endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -52,7 +52,8 @@ Matrix& Matrix:: operator=(const Matrix& other) {
         }
     }
 }
-Matrix Matrix::add (const Matrix &other ) const {
+
+Matrix Matrix::add(const Matrix &other) const {
     if (rows != other.rows || cols != other.cols) {
         throw std::invalid_argument("Matrices must be of the same size to be added together");
     }
@@ -65,6 +66,7 @@ Matrix Matrix::add (const Matrix &other ) const {
     }
     return result;
 }
+
 Matrix Matrix::multiply(const Matrix &other) const {
     if (cols != other.rows) {
         throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix");
@@ -81,7 +83,7 @@ Matrix Matrix::multiply(const Matrix &other) const {
     return result;
 }
 
-void Matrix::print() const{
+void Matrix::print() const {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             std::cout << data[i][j] << " ";
@@ -90,7 +92,7 @@ void Matrix::print() const{
     }
 }
 
-Matrix::~Matrix()  {
+Matrix::~Matrix() {
     for (int i = 0; i < rows; i++) {
         delete[] data[i];
     }
