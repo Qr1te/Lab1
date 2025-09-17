@@ -6,4 +6,4 @@
 б) функция производит сложение двух матриц.
 Память под матрицы отводить динамически. Использовать конструктор с параметрами. Деструктор должен освобождать память, выделенную под матрицы.
 
-## [Ссылка] на SonarQube Cloud(https://sonarcloud.io/summary/new_code?id=Qr1te_Lab12)
+## [SonarQube Cloud] ([https://sonarcloud.io/summary/new_code?id=Qr1te_Lab12](https://sonarcloud.io/summary/overall?id=Qr1te_Lab12&branch=main))
